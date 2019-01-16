@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="ColorPicker">
+    <attr name="picker_style" format="enum">
+      <enum name="horizontal" value="0"/>
+      <enum name="circular" value="1"/>
+    </attr>
+    <attr name="bar_height" format="dimension"/>
+  </declare-styleable>
+
+  <declare-styleable name="HorizontalPicker">
+    <attr name="hp_bar_height" format="dimension"/>
+  </declare-styleable>
+
+</resources>

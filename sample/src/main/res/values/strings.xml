@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">ColorPicker</string>
+  <string name="color_value">Color value: #%06X</string>
+  <string name="alpha_value">Alpha value: %d</string>
+</resources>
