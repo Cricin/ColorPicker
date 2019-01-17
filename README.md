@@ -12,7 +12,7 @@
 
 `AlphaPicker`条状透明度选择器
 
-`ColorPicker`条状灰度颜色选择器
+`GrayPicker`条状灰度颜色选择器
 
 条状选择器支持设置高度和方向,使用下面两个属性
 `app:bar_height`, `android:orientation`
