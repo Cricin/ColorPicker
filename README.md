@@ -6,7 +6,7 @@
 <img src="https://raw.githubusercontent.com/Cricin/ColorPicker/master/pics/pic2.png" width="30%"></img>
 <img src="https://raw.githubusercontent.com/Cricin/ColorPicker/master/pics/pic3.png" width="30%"></img>
 
-`CircleColorPicker`，圆形颜色选择器，使用`app:radius`可以设置选择器的半径
+`CircleColorPicker`圆形颜色选择器，使用`app:radius`可以设置选择器的半径
 
 `ColorPicker`条状颜色选择器。
 
@@ -15,7 +15,7 @@
 `ColorPicker`条状灰度颜色选择器
 
 条状选择器支持设置高度和方向,使用下面两个属性
-`app:bar_height`, "android:orientation"
+`app:bar_height`, `android:orientation`
 
 使用方式:
 * 源码不多，直接拷贝即可
