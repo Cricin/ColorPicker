@@ -18,14 +18,12 @@ package cn.cricin.colorpicker;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-public class GrayPicker extends HorizontalPicker {
+public class GrayPicker extends BarPicker {
 
   public GrayPicker(Context context) {
     super(context);
@@ -36,28 +34,30 @@ public class GrayPicker extends HorizontalPicker {
   }
 
   @Override
-  protected LinearGradient createGradient(int width, int height) {
-    return new LinearGradient(0, height / 2, width, height / 2,
-      0XFFFFFFFF, 0XFF000000, Shader.TileMode.CLAMP);
-  }
-
-  @Override
   protected void onChanged(float percent) {
-    mValue = (int) (percent * 255 + 0.5f);
-    if (mListener != null) {
-      mListener.onValueChanged(this, Color.rgb(mValue, mValue, mValue));
+    super.mValue = (int) (percent * 255 + 0.5f);
+    if (super.mListener != null) {
+      super.mListener.onValueChanged(this, Color.rgb(super.mValue, super.mValue, super.mValue));
     }
   }
 
-  public void setGrayColor(@IntRange(from = 0, to = 255) int grayColor) {
-    int safe = grayColor & 0x000000FF;
-    this.mValue = safe;
-    moveThumb(safe / (float) 255);
+  @Override
+  protected int[] getGradientColors() {
+    return new int[]{Color.BLACK, Color.WHITE};
+  }
+
+  /**
+   * Set a new gray color, since gray color have three same value in r,g,b channel
+   * so we just use the lower 8bit
+   */
+  public void setColor(@IntRange(from = 0, to = 255) int grayColor) {
+    super.mValue = grayColor & 0xFF;
+    moveThumb(super.mValue / (float) 255);
   }
 
   @ColorInt
   public int getColor() {
-    return Color.rgb(mValue, mValue, mValue);
+    return Color.rgb(super.mValue, super.mValue, super.mValue);
   }
 
 }

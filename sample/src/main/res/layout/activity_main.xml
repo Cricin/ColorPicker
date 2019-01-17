@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/content_main"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:gravity="center_horizontal"
   android:orientation="vertical"
   tools:context=".MainActivity">
 
   <FrameLayout
     android:layout_width="260dp"
     android:layout_height="70dp"
-    android:layout_marginTop="20dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="10dp"
     android:orientation="horizontal">
 
     <View
@@ -41,39 +41,28 @@
 
   </FrameLayout>
 
-  <cn.cricin.colorpicker.ColorPicker
-    android:id="@+id/color_picker_circle"
+  <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:picker_style="circular"/>
+    android:layout_marginStart="12dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginTop="10dp"
+    android:text="@string/circle_color_picker"/>
 
-  <cn.cricin.colorpicker.ColorPicker
-    android:id="@+id/color_picker_rectangle"
+  <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginRight="20dp"/>
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
-  <cn.cricin.colorpicker.AlphaPicker
-    android:id="@+id/alpha_picker"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginRight="20dp"/>
+    <cn.cricin.colorpicker.CircleColorPicker
+      android:id="@+id/color_picker_circle"
+      android:layout_width="180dp"
+      android:layout_height="180dp"/>
 
-  <cn.cricin.colorpicker.GrayPicker
-    android:id="@+id/gray_picker"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginRight="20dp"/>
+  </LinearLayout>
+
+  <include layout="@layout/bar_pickers_horizontal"/>
 
 </LinearLayout>

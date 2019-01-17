@@ -20,7 +20,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.LinearGradient;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
@@ -29,10 +29,13 @@ import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-public class AlphaPicker extends HorizontalPicker {
+/**
+ * A horizontal Picker For alpha value[0, 255].
+ */
+public class AlphaPicker extends BarPicker {
 
   @ColorInt
-  private int mPreviewColor = 0xFFFF0000;
+  private int mPreviewColor = Color.RED;
   private Paint mBgPaint;
 
   public AlphaPicker(Context context) {
@@ -41,6 +44,7 @@ public class AlphaPicker extends HorizontalPicker {
 
   public AlphaPicker(Context context, @Nullable AttributeSet attrs) {
     super(context, attrs);
+    super.mValue = 0xFF;
     initBgPaint();
   }
 
@@ -70,30 +74,43 @@ public class AlphaPicker extends HorizontalPicker {
   }
 
   @Override
-  protected LinearGradient createGradient(int width, int height) {
-    @ColorInt final int endColor = 0XFF000000 | mPreviewColor;
-    @ColorInt final int startColor = 0x00FFFFFF & mPreviewColor;
-    return new LinearGradient(0, height / 2, width, height / 2,
-      startColor, endColor, Shader.TileMode.CLAMP);
-  }
-
-  @Override
   protected void onChanged(float percent) {
-    int newAlpha = (int) (percent * 255 + 0.5);
-    if (newAlpha != mValue) {
-      this.mValue = newAlpha;
-      if (mListener != null) mListener.onValueChanged(this, newAlpha);
+    int newAlpha = 255 - (int) (percent * 255 + 0.5);
+    if (newAlpha != super.mValue) {
+      super.mValue = newAlpha;
+      if (super.mListener != null) super.mListener.onValueChanged(this, newAlpha);
     }
   }
 
-  public void setPreviewColor(@ColorInt int color) {
-    this.mPreviewColor = color;
-    invalidateGradient();
+  @Override
+  protected int[] getGradientColors() {
+    @ColorInt final int startColor = Util.setAlpha(mPreviewColor, 0xFF);
+    @ColorInt final int endColor = Util.setAlpha(mPreviewColor, 0);
+    return new int[]{startColor, endColor};
   }
 
-  public void setAlpha(@IntRange(from = 0, to = 255) int newAlpha) {
-    this.mValue = newAlpha;
-    moveThumb(newAlpha / (float) 255);
+  /**
+   * Set a color to preview
+   */
+  public void setPreviewColor(@ColorInt int color) {
+    this.mPreviewColor = color;
+    super.invalidateGradient();
+  }
+
+  /**
+   * Set current alpha value
+   */
+  public void setAlphaInt(@IntRange(from = 0, to = 255) int newAlpha) {
+    super.mValue = newAlpha & 0xFF;
+    super.moveThumb(1- super.mValue / (float) 255);
+  }
+
+  /**
+   * Get alpha in this AlphaPicker
+   */
+  @IntRange(from = 0, to = 255)
+  public int getAlphaInt() {
+    return super.mValue;
   }
 
 }

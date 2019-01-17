@@ -16,19 +16,12 @@
 
 package cn.cricin.colorpicker;
 
-import android.view.View;
+import android.support.annotation.ColorInt;
 
-/**
- * A callback when color or alpha value changed.
- */
-public interface OnValueChangeListener {
-  /**
-   * Called when a color or alpha is picked.
-   *
-   * @param view     Target view, either of {@link AlphaPicker}, {@link CircleColorPicker},
-   *                 {@link ColorPicker} or {@link GrayPicker}
-   * @param newValue A color with alpha channel filled with 0xFF, Or alpha value
-   *                 ranges in [0, 255]
-   */
-  void onValueChanged(View view, int newValue);
+final class Util {
+  static int setAlpha(@ColorInt int color, int alpha) {
+    return alpha << 24 | (0xFFFFFF & color);
+  }
+
+  private Util() {}
 }

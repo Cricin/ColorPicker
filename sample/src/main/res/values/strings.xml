@@ -2,4 +2,10 @@
   <string name="app_name">ColorPicker</string>
   <string name="color_value">Color value: #%06X</string>
   <string name="alpha_value">Alpha value: %d</string>
+  <string name="alpha_picker">Alpha Picker</string>
+  <string name="circle_color_picker">Circle Color Picker</string>
+  <string name="gray_picker">Gray Picker</string>
+  <string name="color_picker">Color Picker</string>
+  <string name="color_picker_vertical">Color Picker Vertical</string>
+  <string name="switch_orientation">Switch Orientation</string>
 </resources>

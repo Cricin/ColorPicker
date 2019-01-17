@@ -27,21 +27,19 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import java.lang.ref.WeakReference;
-
-@SuppressWarnings("WeakerAccess")
 public class ThumbDrawable extends Drawable {
   private static final int DEFAULT_SIZE = 24;//dp
+  private static final int DEFAULT_INNER_SIZE = 3;
 
   private int mSize;
+  private int mInnerSize;
   private Paint mPaint;
-  private WeakReference<Context> mContextRef;
   private boolean mPressed;
 
   public ThumbDrawable(Context context) {
-    this.mContextRef = new WeakReference<>(context);
     this.mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     mSize = dp2px(context, DEFAULT_SIZE);
+    mInnerSize = dp2px(context, DEFAULT_INNER_SIZE);
   }
 
   @Override
@@ -65,13 +63,20 @@ public class ThumbDrawable extends Drawable {
       canvas.drawCircle(0, 0, bounds.width() / 2 - 5, mPaint);
     }
     mPaint.setStyle(Paint.Style.FILL);
-    canvas.drawCircle(0, 0, dp2px(mContextRef.get(), 3), mPaint);
+    canvas.drawCircle(0, 0, mInnerSize, mPaint);
 
     canvas.restore();
   }
 
-  public void setPressed(boolean pressed) {
+  @Override
+  protected boolean onStateChange(int[] states) {
+    boolean pressed = false;
+    for (int state : states) {
+      pressed |= state == android.R.attr.state_pressed;
+    }
+    final boolean oldPressed = mPressed;
     mPressed = pressed;
+    return pressed != oldPressed;
   }
 
   @Override
@@ -95,8 +100,12 @@ public class ThumbDrawable extends Drawable {
     return PixelFormat.TRANSLUCENT;
   }
 
+  @Override
+  public boolean isStateful() {
+    return true;
+  }
+
   private static int dp2px(Context ctx, int dpVal) {
-    if (ctx == null) return dpVal;
     return (int) (ctx.getResources().getDisplayMetrics().density * dpVal + 0.5);
   }
 }

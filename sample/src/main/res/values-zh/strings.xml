@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">颜色选择器</string>
-  <string name="color_value">颜色值: #%06X</string>
-  <string name="alpha_value">透明度: %d</string>
+  <!--<string name="app_name">颜色选择器</string>-->
+  <!--<string name="color_value">颜色值: #%06X</string>-->
+  <!--<string name="alpha_value">透明度: %d</string>-->
+  <!--<string name="alpha_picker">透明度选择器</string>-->
+  <!--<string name="circle_color_picker">圆形颜色选择器</string>-->
+  <!--<string name="gray_picker">灰度选择器</string>-->
+  <!--<string name="color_picker">颜色选择器</string>-->
+  <!--<string name="color_picker_vertical">颜色选择器-竖直</string>-->
+  <!--<string name="switch_orientation">切换方向</string>-->
 </resources>
