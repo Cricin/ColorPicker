@@ -1,36 +1,33 @@
 # ColorPicker for Android
 
-[中文](https://github.com/Cricin/ColorPicker/blob/master/README_cn.md)
-
-A color picker library, provide various style of picker widgets.
+一个颜色选择库，提供了多种样式的选择控件
 
 <img src="https://raw.githubusercontent.com/Cricin/ColorPicker/master/pics/pic1.png" width="30%"></img>
 <img src="https://raw.githubusercontent.com/Cricin/ColorPicker/master/pics/pic2.png" width="30%"></img>
 <img src="https://raw.githubusercontent.com/Cricin/ColorPicker/master/pics/pic3.png" width="30%"></img>
 
-`CircleColorPicker` A circle color picker，use `app:radius` to set the circle's radius if you like
+`CircleColorPicker`圆形颜色选择器，使用`app:radius`可以设置选择器的半径
 
-`ColorPicker` A bar picker style color picker。
+`ColorPicker`条状颜色选择器。
 
-`AlphaPicker` A bar picker style alpha picker
+`AlphaPicker`条状透明度选择器
 
-`GrayPicker` A bar picker style gray color picker
+`GrayPicker`条状灰度颜色选择器
 
-All bar pickers support setting bar height and orientation, use attributes below:
-
+条状选择器支持设置高度和方向,使用下面两个属性
 `app:bar_height`, `android:orientation`
 
-Usage:
-* Just copy source files
-* Gradle dependency
+使用方式:
+* 源码不多，直接拷贝即可
+* Gradle依赖
   ```
   compile 'cn.cricin:filepicker:0.0.1'
   ```
 
-## Download
-[Demo Download here](https://raw.githubusercontent.com/Cricin/ColorPicker/master/demo.apk)
+## 下载
+[点击下载Demo](https://raw.githubusercontent.com/Cricin/ColorPicker/master/demo.apk)
 
-## License
+## 许可
 
 Copyright 2019 Cricin
 
