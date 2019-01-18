@@ -24,7 +24,7 @@ Usage:
 * Just copy source files
 * Gradle dependency
   ```
-  compile 'cn.cricin:filepicker:0.0.1'
+  compile 'cn.cricin:colorpicker:0.0.1'
   ```
 
 ## Download

@@ -21,7 +21,7 @@
 * 源码不多，直接拷贝即可
 * Gradle依赖
   ```
-  compile 'cn.cricin:filepicker:0.0.1'
+  compile 'cn.cricin:colorpicker:0.0.1'
   ```
 
 ## 下载

@@ -36,7 +36,7 @@
     <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/color_picker"/>
+      android:text="@string/alpha_picker"/>
 
     <cn.cricin.colorpicker.AlphaPicker
       android:id="@+id/alpha_picker"
@@ -58,7 +58,7 @@
     <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/color_picker"/>
+      android:text="@string/gray_picker"/>
 
     <cn.cricin.colorpicker.GrayPicker
       android:id="@+id/gray_picker"
